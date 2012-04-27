@@ -13,4 +13,23 @@ describe Instruction do
     before { @instruction.content = "" }
     it { should_not be_valid }
   end
+
+  describe "when browser and platform are found" do
+    before {
+      load "#{Rails.root}/db/seeds.rb"
+      @ins = @instruction.get_instructions('firefox', 'macintosh')
+    }
+    subject { @ins }
+    it { should be_valid }
+  end
+
+  describe "when browser and platform are not found" do
+    before {
+      load "#{Rails.root}/db/seeds.rb"
+      @ins = @instruction.get_instructions('test', 'test')
+    }
+    subject { @ins }
+    it { should be_nil }
+  end
+
 end

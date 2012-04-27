@@ -11,27 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120411062944) do
 
   create_table "browsers", :force => true do |t|
-    t.text "name"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "browsers", ["id"], :name => "autoindex_browsers_1", :unique => true
-  add_index "browsers", ["name"], :name => "autoindex_browsers_2"
 
   create_table "instructions", :force => true do |t|
-    t.text    "content"
-    t.integer "platform_id"
-    t.integer "browser_id"
+    t.string   "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "platform_id"
+    t.integer  "browser_id"
   end
-
-  add_index "instructions", ["id"], :name => "autoindex_instructions_1", :unique => true
 
   create_table "platforms", :force => true do |t|
-    t.text "name", :null => false
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "platforms", ["id"], :name => "autoindex_platforms_1", :unique => true
 
 end

@@ -1,4 +1,4 @@
 class Platform < ActiveRecord::Base
-  has_one :instruction
+  has_many :instruction
   attr_accessible :name
 end

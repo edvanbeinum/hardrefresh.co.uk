@@ -3,4 +3,4 @@
 <p>your Browser is <%=@browser %> on <%=@platform %></p>
 <p>Find me in app/views/index/index.html.erb</p>
 
-<p><%= @instruction.content %></p>
+<p><%= to_html(@instruction.content).html_safe %></p>

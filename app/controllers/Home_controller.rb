@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
   def index
-    ua = AgentOrange::UserAgent.new request.env["HTTP_USER_AGENT"]
-    @browser = ua.device.engine.browser.type.to_s
-    @platform = ua.device.platform.to_s
+    ua = UserAgent.parse(request.env["HTTP_USER_AGENT"])
+    logger.info request.env["HTTP_USER_AGENT"]
+    logger.info ua.browser
+    @browser = ua.browser.to_s
+    @platform = ua.platform.to_s
 
     @instruction = Instruction.new.get_instructions(@browser.downcase, @platform.downcase)
   end

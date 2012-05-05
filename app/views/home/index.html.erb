@@ -2,6 +2,6 @@
 
 <h1>We think your Browser is <%=@browser.capitalize %> on <%=@platform %></h1>
 
-<%=image_tag(@browser + ".png") %>
+<%=image_tag(@browser.downcase + ".png") %>
 
 <p><%= to_html(@instruction.content).html_safe %></p>

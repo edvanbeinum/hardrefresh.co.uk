@@ -2,9 +2,25 @@
 
 <div class="row panel">
     <div class="span6 offset3">
-        <%=image_tag(@browser.downcase + ".png") %>
-        <h1><%=@browser.capitalize %> on <%=@platform %></h1>
-        <p>To clear the cache:</p>
-        <p><%= to_html(@instruction.content).html_safe %></p>
+        <% if (@instruction.nil?) %>
+            <h1>Sorry, we couldn't determine your browser and OS combination</h1>
+            <p>You can manually select your Browser and OS combination to get instructions for clearing the cache:</p>
+            <ul>
+                <li>Chrome</li>
+                <li>Firefox</li>
+                <li>Internet Explorer</li>
+                <li>Opera</li>
+                <li>Safari</li>
+            </ul>
+            <ul>
+                <li>Linux</li>
+                <li>Macintosh</li>
+                <li>Windows</li>
+        <% else %>
+            <%=image_tag(@browser.downcase + ".png") %>
+            <h1><%=@browser.capitalize %> on <%=@platform %></h1>
+            <p>To clear the cache:</p>
+            <p><%= to_html(@instruction.content).html_safe %></p>
+        <% end %>
     </div>
 </div>

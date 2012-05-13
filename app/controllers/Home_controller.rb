@@ -5,6 +5,7 @@ class HomeController < ApplicationController
     logger.info ua.browser
     @browser = ua.browser.to_s
     @platform = ua.platform.to_s
+    logger.debug "browser: #{@browser} platform: #{@platform}"
 
     @instruction = Instruction.new.get_instructions(@browser.downcase, @platform.downcase)
     @all_instructions = Instruction.new.get_all_instructions

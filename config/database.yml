@@ -20,8 +20,9 @@ test:
 
 production:
   adapter: postgresql
-  database: hardrefresh
-  user: hr_user
-  password: frR67&uYJGJ
+  database: fuiqpaikom
+  server: ec2-23-23-226-108.compute-1.amazonaws.com
+  user: fuiqpaikom
+  password: rq8Hxk1Zp94LyuOS8gBw
   pool: 5
   timeout: 5000

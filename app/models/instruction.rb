@@ -6,6 +6,9 @@ class Instruction < ActiveRecord::Base
   validates :content, presence: true
 
   def get_instructions(browser, platform)
+    # necessary to trim off any 'windows NT4' junk
+    platform = 'windows' if platform.starts_with?('windows')
+    browser = 'ie' if browser.starts_with?('internet')
     self.class.joins(:platform, :browser).where(platforms: {name: platform}, browsers: {name: browser}).first
   end
 

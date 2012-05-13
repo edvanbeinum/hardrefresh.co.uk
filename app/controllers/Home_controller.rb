@@ -7,5 +7,6 @@ class HomeController < ApplicationController
     @platform = ua.platform.to_s
 
     @instruction = Instruction.new.get_instructions(@browser.downcase, @platform.downcase)
+    @all_instructions = Instruction.new.get_all_instructions
   end
 end

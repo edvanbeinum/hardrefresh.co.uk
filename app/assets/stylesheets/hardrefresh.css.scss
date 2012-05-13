@@ -17,10 +17,14 @@ body {
         color: $white;
         margin: 20px 0;
         font-weight: normal; // needed for FF to render the correct weight
+        text-shadow: #000 1px 1px;
     }
-    p, ol li {
+    p, , ul li, ol li {
         font-size: 18px;
         line-height: 28px;
+    }
+    .browsers, .platforms {
+        margin: 0 0 20px;
     }
 }
 

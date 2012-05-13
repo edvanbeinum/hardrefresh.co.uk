@@ -5,17 +5,30 @@
         <% if (@instruction.nil?) %>
             <h1>Sorry, we couldn't determine your browser and OS combination</h1>
             <p>You can manually select your Browser and OS combination to get instructions for clearing the cache:</p>
-            <ul>
-                <li>Chrome</li>
-                <li>Firefox</li>
-                <li>Internet Explorer</li>
-                <li>Opera</li>
-                <li>Safari</li>
-            </ul>
-            <ul>
-                <li>Linux</li>
-                <li>Macintosh</li>
-                <li>Windows</li>
+
+            <div class="browsers btn-group">
+                <button class="btn" id="chrome">Chrome</button>
+                <button class="btn" id="firefox">Firefox</button>
+                <button class="btn" id="ie">Internet Explorer</button>
+                <button class="btn" id="opera">Opera</button>
+                <button class="btn" id="safari">Safari</button>
+            </div>
+
+            <div class="platforms btn-group">
+                <button class="btn" id="linux">Linux</button>
+                <button class="btn" id="macintosh">Macintosh</button>
+                <button class="btn" id="windows">Windows</button>
+            </div>
+
+            <% @all_instructions.each do |instruction| %>
+            <div class="instructions <%= instruction.browser.name %> <%= instruction.platform.name %>">
+                <h1><%= instruction.browser.name.capitalize %> on <%=instruction.platform.name.capitalize %></h1>
+                <p><%= to_html(instruction.content).html_safe %></p>
+            </div>
+            <% end %>
+            <div class="instructions unknown">
+                <p>Sorry, we don't have that browser/OS combination</p>
+            </div>
         <% else %>
             <%=image_tag(@browser.downcase + ".png") %>
             <h1><%=@browser.capitalize %> on <%=@platform %></h1>

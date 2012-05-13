@@ -12,7 +12,6 @@ gem 'pg', '0.13.2'
 
 
 group :development, :test do
-  gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.9.0'
   gem 'guard-rspec', '0.5.5'
 end
@@ -26,12 +25,13 @@ group :assets do
 end
 
 group :test do
+  gem 'sqlite3', '1.3.5'
   gem 'capybara', '1.1.2'
 end
 
-# group :production do
-#   gem 'thin'
-# end
+group :production do
+  gem 'thin'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

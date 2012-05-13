@@ -11,26 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411062944) do
+ActiveRecord::Schema.define(:version => 20120513143416) do
 
   create_table "browsers", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name"
   end
 
   create_table "instructions", :force => true do |t|
-    t.string   "content"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.integer  "platform_id"
-    t.integer  "browser_id"
+    t.text    "content"
+    t.integer "browser_id"
+    t.integer "platform_id"
   end
 
   create_table "platforms", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string "name"
   end
 
 end

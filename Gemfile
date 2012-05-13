@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '2.0.0'
 gem 'useragent', '0.4.8'
 gem 'jquery-rails', '2.0.0'
 gem 'kramdown', '0.13.5'
+gem 'pg', '0.13.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,6 +28,10 @@ end
 group :test do
   gem 'capybara', '1.1.2'
 end
+
+# group :production do
+#   gem 'thin'
+# end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

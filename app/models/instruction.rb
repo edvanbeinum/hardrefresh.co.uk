@@ -8,7 +8,7 @@ class Instruction < ActiveRecord::Base
   def get_instructions(browser, platform)
     self.class.joins(:platform, :browser).where(platforms: {name: platform}, browsers: {name: browser}).first
   end
-  
+
   def get_all_instructions
     self.class.joins(:platform, :browser)
   end

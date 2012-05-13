@@ -25,7 +25,6 @@ $(document).ready ->
             return
         $('.instructions').hide()
         instructionDiv = $(".#{browser}.#{platform}")
-        console.log ".#{browser}.#{platform}"
         if instructionDiv.length > 0
             instructionDiv.show()
         else

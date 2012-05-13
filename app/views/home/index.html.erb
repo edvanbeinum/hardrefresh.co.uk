@@ -30,7 +30,7 @@
                 <p>Sorry, we don't have that browser/OS combination</p>
             </div>
         <% else %>
-            <%=image_tag(@browser.downcase.gsub!('\s', '-') + ".png") %>
+            <%=image_tag(@browser.downcase.gsub!(/\s/, '-') + ".png") %>
             <h1><%=@browser.capitalize %> on <%=@platform %></h1>
             <p>To clear the cache:</p>
             <p><%= to_html(@instruction.content).html_safe %></p>
